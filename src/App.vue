@@ -1,26 +1,27 @@
+<!-- App.vue -->
 <template>
   <div id="app">
-    <h1>消消乐游戏</h1>
-    <GameBoard />
+    <router-view/>
   </div>
 </template>
 
 <script>
-import GameBoard from './components/GameBoard.vue';
-
 export default {
-  components: {
-    GameBoard
-  },
   errorCaptured(err, vm, info) {
-    console.error('捕获到错误：', err, '在：', info);
-    return false;  // 返回 false 以阻止错误继续向上传播
+    console.error('Error:', err, 'in:', info)
+    return false
   }
 }
 </script>
 
 <style>
 #app {
-  text-align: center;
+  font-family: Arial, sans-serif;
+}
+.btn {
+  margin: 5px;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 </style>
