@@ -15,19 +15,23 @@
 
 <script>
 export default {
+  // 初始化组件数据
   data() {
     return {
       rankingList: []
     }
   },
+  // 组件挂载后加载排行榜数据
   mounted() {
     this.loadRanking()
   },
   methods: {
+    // 从 localStorage 加载排行榜数据
     loadRanking() {
       const ranking = localStorage.getItem('ranking')
       this.rankingList = ranking ? JSON.parse(ranking) : []
     },
+    // 将新的记录保存到排行榜并更新到 localStorage
     saveRanking(record) {
       this.rankingList.push(record)
       this.rankingList.sort((a, b) => b.score - a.score)
